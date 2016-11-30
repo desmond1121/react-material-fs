@@ -1,0 +1,16 @@
+{
+  "name": "react-material-fs",
+  "version": "0.0.1",
+  "dependencies": {
+    "react": "^15.4.1",
+    "react-redux": "^4.4.6",
+    "redux": "^3.6.0"
+  },
+  "devDependencies": {
+    "babel": "^6.5.2",
+    "css-loader": "^0.26.0",
+    "flow-bin": "^0.36.0",
+    "webpack": "^1.13.3",
+    "webpack-dev-server": "^1.16.2"
+  }
+}
