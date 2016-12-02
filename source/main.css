@@ -1,0 +1,15 @@
+body {
+  background-color : gray;
+}
+
+#root {
+  margin: 10;
+}
+
+.element {
+  margin: 10;
+  background-color: green;
+  color: white;
+  font-size: 20px;
+  padding: 20px;
+}
