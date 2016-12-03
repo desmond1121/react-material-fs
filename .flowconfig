@@ -1,0 +1,9 @@
+[ignore]
+webpack.config.js
+gulpfile.js
+
+[include]
+
+[libs]
+
+[options]

@@ -1,13 +1,13 @@
 body {
-  background-color : gray;
+  background-color: gray;
 }
 
 #root {
-  margin: 10;
+  margin: 10px;
 }
 
 .element {
-  margin: 10;
+  margin: 10px;
   background-color: green;
   color: white;
   font-size: 20px;
