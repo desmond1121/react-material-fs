@@ -1,23 +1,13 @@
 /**
  * Created by desmond on 12/3/16.
- * @flow
  */
-import React, { Component } from 'react';
+import React from 'react'
 
-type Props = {
-  name : string
-};
+const File = (props) => (
+  <div>
+    <h1>{props.name}</h1>
+    <h2>{props.isDir}</h2>
+  </div>
+);
 
-export default class File extends React.Component {
-  
-    constructor(props : Props) {
-        super(props);
-    }
-    
-    render() {
-      return (
-        <a className="waves-effect btn">
-          File!
-        </a>);
-    }
-}
+export default File;

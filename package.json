@@ -1,15 +1,19 @@
 {
   "name": "react-material-fs",
   "version": "0.0.1",
+  "description": "A material file system powered by react.",
   "repository": "git@bitbucket.org:desmond1121/react-material-fs.git",
   "scripts": {
     "dev": "webpack-dev-server --color"
   },
+  "license": "MIT",
   "dependencies": {
     "materialize-css": "^0.97.8",
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
     "react-redux": "^4.4.6",
+    "react-router": "^3.0.0",
+    "redux-thunk": "^2.1.0",
     "redux": "^3.6.0"
   },
   "devDependencies": {

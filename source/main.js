@@ -1,28 +1,14 @@
 /**
  * Created by desmond on 12/3/16.
- * @flow
  */
 
-import File from './component/File';
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { render } from 'react-dom';
+import App from './App';
 
 require('materialize-css/dist/css/materialize.css');
 
-class Demo extends React.Component {
-  render() {
-    return (
-      <div>
-        <a className="waves-effect waves-light btn">
-          Hello World
-        </a>
-        <File />
-      </div>
-    );
-  }
-}
-
-ReactDOM.render(
-  <Demo />,
+render(
+  <App />,
   document.getElementById('root')
 );
