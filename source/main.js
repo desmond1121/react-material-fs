@@ -3,12 +3,12 @@
  */
 
 import React from 'react';
-import { render } from 'react-dom';
+import ReactDOM from 'react-dom';
 import App from './App';
 
 require('materialize-css/dist/css/materialize.css');
 
-render(
+ReactDOM.render(
   <App />,
   document.getElementById('root')
 );
