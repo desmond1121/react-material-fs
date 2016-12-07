@@ -1,6 +1,7 @@
 /**
  * Created by desmond on 12/3/16.
  */
+'use strict';
 
 import React from 'react';
 import ReactDOM from 'react-dom';

@@ -1,15 +1,25 @@
 /**
  * Created by desmond on 12/3/16.
- * @flow
  */
-import { combineReducers } from 'redux'
+'use strict';
 
-function reducer(state = {}, action) {
-  return {}
+import { combineReducers } from 'redux';
+import * as Actions from '../actions';
+
+function apiReducer(state = {}, action) {
+  switch (action.type) {
+    case Actions.RECEIVE_DETAILS:
+      return {
+        path: action.path,
+        detail : action.detail
+      };
+    default:
+      return state;
+  }
 }
 
 const rootReducer = combineReducers({
-  reducer
+  apiReducer
 });
 
 export default rootReducer;

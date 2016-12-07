@@ -1,22 +1,17 @@
 /**
  * Created by desmond on 12/3/16.
  */
+'use strict';
 
 import React from 'react';
-import thunk from 'redux-thunk';
-import { createStore, applyMiddleware } from 'redux'
-import { Router, Route, browserHistory } from 'react-router';
-import Page from './component/Page';
-import { Provider } from 'react-redux';
-import rootReducer from './reducers';
 
-const store = createStore(
-  rootReducer,
-  applyMiddleware(thunk)
-);
+import { Router, Route, browserHistory } from 'react-router';
+import Page from './containers/Page';
+import { Provider } from 'react-redux';
+import configureStore from './store/configStore.dev';
 
 const App = () => (
-  <Provider store={store}>
+  <Provider store={configureStore({})}>
     <Router history={browserHistory}>
       <Route path="/(:uri)" component={Page} />
     </Router>
