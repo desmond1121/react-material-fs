@@ -8,6 +8,7 @@ const fs = require('fs');
 const fileUtils = require('./fileutils');
 
 const root = '/Users/desmond/CodeFiles';
+global.rootPath = root;
 
 // Create an HTTP tunneling proxy
 const server = http.createServer();
@@ -42,3 +43,4 @@ server.on('request', (req, res) => {
 
 // now that proxy is running
 server.listen(2333);
+console.log('Serve file in http://localhost:2333/');

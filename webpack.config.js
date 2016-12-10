@@ -8,6 +8,9 @@ module.exports = {
   module: {
     loaders: [
       {
+        test: /\.scss$/,
+        loader: 'style!css!sass'
+      }, {
         test: /\.css$/,
         loader: 'style!css'
       }, {
@@ -18,11 +21,22 @@ module.exports = {
           presets: ['es2015', 'react']
         }
       }, {
-        test: /\.(ttf|eot|svg|jpg)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "file-loader"
+        test: /\.(ttf|eot|svg|jpg|png)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        loader: "file-loader?name=[name]-[md5:hash:6].[ext]"
       }, {
-        test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "url-loader?limit=10000&mimetype=application/font-woff"
+        test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        loader: "url-loader?limit=10000&mimetype=application/font-woff"
       }
     ]
+  },
+  resolve: {
+    root: __dirname,
+    alias: {
+      assets : 'source/assets',
+      actions : 'source/actions',
+      store : 'source/store',
+      stylesheet : 'source/stylesheet'
+    }
   },
   devServer: {
     historyApiFallback: true,

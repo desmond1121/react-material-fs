@@ -6,20 +6,17 @@
 import { combineReducers } from 'redux';
 import * as Actions from '../actions';
 
-function apiReducer(state = {}, action) {
+function pageReducer(state = {}, action) {
   switch (action.type) {
     case Actions.RECEIVE_DETAILS:
-      return {
-        path: action.path,
-        detail : action.detail
-      };
+      return Object.assign({}, action.detail);
     default:
       return state;
   }
 }
 
 const rootReducer = combineReducers({
-  apiReducer
+  pageReducer
 });
 
 export default rootReducer;

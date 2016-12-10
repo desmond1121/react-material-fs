@@ -11,17 +11,16 @@ export const thunkGetPathDetail = (path) => {
   return (dispatch) => (
     fetch(url + path)
       .then(response => response.json())
-      .then(json => dispatch(receivePathDetail(path, json)))
+      .then(json => dispatch(receivePathDetail(json)))
       .catch(error => console.log(error))
   );
 };
 
 export const RECEIVE_DETAILS = 'RECEIVE_DETAILS';
-function receivePathDetail(path, detail) {
+function receivePathDetail(detail) {
   return {
     type: RECEIVE_DETAILS,
-    path,
-    detail
+    detail: detail
   };
 }
 

@@ -7,7 +7,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 
-require('materialize-css/dist/css/materialize.css');
+require('jquery');
+require('materialize-css');
+require('stylesheet/main.scss');
 
 ReactDOM.render(
   <App />,

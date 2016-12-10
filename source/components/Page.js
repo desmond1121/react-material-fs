@@ -3,7 +3,10 @@
  */
 'use strict';
 import React from 'react';
-import File from './File';
+import FileItem from './FileItem';
+import Loading from './Loading';
+
+const ROW_ITEM = 6;
 
 class Page extends React.Component {
   constructor(props) {
@@ -11,35 +14,51 @@ class Page extends React.Component {
   }
   
   render() {
-    console.log('Location ', this.props.location);
-    let pathDetail = this.props.pathDetail;
-    let path = this.props.location.pathname;
-    if (!pathDetail) {
+    let fileList = this.props.fileList;
+    let path = this.props.path;
+    if (!fileList) {
       this.props.fetchPathDetail(path);
       return (
-        <a className="waves-effect btn">Loading!</a>
+        <Loading />
       );
     } else {
+      let rows = [];
+      let rowCount = fileList.length / ROW_ITEM;
+      for (let i = 0; i < rowCount; i++) {
+        let start = i * ROW_ITEM;
+        let end = start + ROW_ITEM;
+        rows.push(this._renderRow(fileList.slice(start, end), i, start));
+      }
       return (
-        <div>
-          {
-            pathDetail.map((item, index) => (
-              <File
-                key={index}
-                name={item.path}
-                type={item.type}
-              />
-            ))
-          }
+        <div className="folder-page">
+          {rows}
         </div>
       );
     }
   }
+  
+  _renderRow(pathList, key, start) {
+    return (
+      <div key={key} className="row">
+        {
+          pathList.map((item, index) => {
+            return (
+              <div key={start + index}
+                   className="col s12 m2">
+                <FileItem
+                  data={item}
+                />
+              </div>);
+          })
+        }
+      </div>);
+  }
 }
 
 Page.propTypes = {
+  path: React.PropTypes.string.isRequired,
   fetchPathDetail : React.PropTypes.func,
-  pathDetail : React.PropTypes.array
+  fileList : React.PropTypes.array
 };
 
 export default Page;

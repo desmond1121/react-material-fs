@@ -1,0 +1,40 @@
+// import materialize-css
+$roboto-font-path: '~materialize-css/fonts/roboto/';
+@import '~materialize-css/sass/materialize';
+
+nav {
+  @extend .light-green, .darken-1;
+}
+
+body {
+  @extend .cyan, .lighten-3;
+}
+
+.nav-title {
+  @extend .cyan-text, .text-lighten-5;
+}
+
+.folder-page {
+  margin-top: 20px;
+  margin-left: 40px;
+  margin-right: 40px;
+}
+
+.card-image {
+  padding-top: 10px;
+}
+
+.card .card-image .file-icon {
+  width: 40%;
+  height: auto;
+  margin: 0 auto;
+}
+
+.card .card-content {
+  padding: 0;
+}
+
+.card .card-content .file-name {
+  color: darkcyan;
+  text-align: center;
+}

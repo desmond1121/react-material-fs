@@ -9,8 +9,7 @@ import { thunkGetPathDetail } from '../actions';
 
 const mapStateToProps = (state) => {
   return {
-    path: state.apiReducer.path,
-    pathDetail : state.apiReducer.detail
+    fileList : state.pageReducer.list
   };
 };
 

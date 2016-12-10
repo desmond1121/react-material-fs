@@ -4,11 +4,12 @@
   "description": "A material file system powered by react.",
   "repository": "git@bitbucket.org:desmond1121/react-material-fs.git",
   "scripts": {
-    "dev": "webpack-dev-server --color"
+    "dev": "webpack-dev-server --inline --hot"
   },
   "license": "MIT",
   "dependencies": {
     "isomorphic-fetch": "^2.2.1",
+    "jquery": "^3.1.1",
     "materialize-css": "^0.97.8",
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
@@ -31,9 +32,11 @@
     "flow-bin": "^0.36.0",
     "gulp": "^3.9.1",
     "gulp-git": "^1.12.0",
+    "node-sass": "^3.13.0",
     "redux-devtools": "^3.3.1",
     "redux-devtools-dock-monitor": "^1.1.1",
     "redux-devtools-log-monitor": "^1.1.1",
+    "sass-loader": "^4.0.2",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
     "webpack": "^1.13.3",
