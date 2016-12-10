@@ -1,5 +1,5 @@
-var gulp = require('gulp');
-var git = require('gulp-git');
+const gulp = require('gulp');
+const git = require('gulp-git');
 
 gulp.task('gh:add', function() {
   return gulp.src('./').pipe(git.add());

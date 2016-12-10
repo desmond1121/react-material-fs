@@ -6,7 +6,7 @@
 import { combineReducers } from 'redux';
 import * as Actions from '../actions';
 
-function pageReducer(state = {}, action) {
+function folderReducer(state = {}, action) {
   switch (action.type) {
     case Actions.RECEIVE_DETAILS:
       return Object.assign({}, action.detail);
@@ -15,8 +15,20 @@ function pageReducer(state = {}, action) {
   }
 }
 
+function fileReducer(state = {}, action) {
+  switch (action.type) {
+    case Actions.RECEIVE_FILE_DETAIL:
+      return {
+        data : action.data
+      };
+    default:
+      return state;
+  }
+}
+
 const rootReducer = combineReducers({
-  pageReducer
+  folderReducer,
+  fileReducer
 });
 
 export default rootReducer;

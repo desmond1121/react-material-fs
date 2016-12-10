@@ -4,12 +4,12 @@
 'use strict';
 
 import { connect } from 'react-redux';
-import Page from '../components/Page';
+import Folder from '../components/Folder';
 import { thunkGetPathDetail } from '../actions';
 
 const mapStateToProps = (state) => {
   return {
-    fileList : state.pageReducer.list
+    fileList : state.folderReducer.list
   };
 };
 
@@ -19,4 +19,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Page);
+export default connect(mapStateToProps, mapDispatchToProps)(Folder);

@@ -4,6 +4,7 @@
 'use strict';
 
 const fs = require('fs');
+const path = require('path');
 const ft = require('./constants');
 
 const getExt = (name) => name.substr(name.lastIndexOf('.') + 1);
@@ -35,31 +36,20 @@ const getFname = (path) => {
   return pathFixed.substr(pathFixed.lastIndexOf('/') + 1);
 };
 
-exports.getDir = (root, url) => {
-  let dir = root + url;
-  if (!dir.endsWith('/')) {
-    dir += '/';
-  }
-  return dir;
-};
-
-exports.getDirFiles = (path) => {
-  let list = fs.readdirSync(path);
+exports.getDirFiles = (dirPath) => {
+  let list = fs.readdirSync(dirPath);
   let flist = [];
   list.forEach(item => {
-    let itemPath = path + item;
+    let itemPath = path.join(dirPath, item);
     let stat = fs.statSync(itemPath);
     flist.push({
       type: mapFileType(item, stat),
-      path: itemPath,
       name: getFname(itemPath),
       size: stat.size,
       mtime: stat.mtime
     });
   });
   return {
-    root: global.rootPath,
-    path,
     list: flist
   };
 };

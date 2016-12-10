@@ -1,5 +1,5 @@
 module.exports = {
-  entry: __dirname + '/source/main.js',
+  entry: __dirname + '/source/App.js',
   output: {
     path: __dirname + '/build',
     publicPath: '/build/',

@@ -5,6 +5,7 @@
 
 const http = require('http');
 const fs = require('fs');
+const path = require('path');
 const fileUtils = require('./fileutils');
 
 const root = '/Users/desmond/CodeFiles';
@@ -13,23 +14,23 @@ global.rootPath = root;
 // Create an HTTP tunneling proxy
 const server = http.createServer();
 server.on('request', (req, res) => {
-  let path = fileUtils.getDir(root, req.url);
+  let filePath = path.join(root, req.url);
   try {
-    let stat = fs.statSync(path);
+    let stat = fs.statSync(filePath);
     if (stat.isDirectory()) {
-      let list = fileUtils.getDirFiles(path);
+      let list = fileUtils.getDirFiles(filePath);
       res.writeHead(200, {
         'Content-Type': 'text/plain',
         'Access-Control-Allow-Origin': '*'
       });
       res.end(JSON.stringify(list));
     } else if (stat.isFile()){
-      let list = fs.getDirFiles(path);
+      let file = fs.readFileSync(filePath, 'utf-8');
       res.writeHead(200, {
         'Content-Type': 'text/plain',
         'Access-Control-Allow-Origin': '*'
       });
-      res.end(JSON.stringify(list));
+      res.end(file);
     }
   } catch (e) {
     if (e.code === 'ENOENT') {

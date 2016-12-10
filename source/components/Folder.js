@@ -8,16 +8,19 @@ import Loading from './Loading';
 
 const ROW_ITEM = 6;
 
-class Page extends React.Component {
+class Folder extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {};
   }
   
   render() {
-    let fileList = this.props.fileList;
-    let path = this.props.path;
-    if (!fileList) {
+    let fileList = this.state.fileList;
+    let path = this.props.uri;
+    let origin = this.uri;
+    if (!fileList || fileList.length == 0 || origin != path) {
       this.props.fetchPathDetail(path);
+      this.uri = path;
       return (
         <Loading />
       );
@@ -27,7 +30,7 @@ class Page extends React.Component {
       for (let i = 0; i < rowCount; i++) {
         let start = i * ROW_ITEM;
         let end = start + ROW_ITEM;
-        rows.push(this._renderRow(fileList.slice(start, end), i, start));
+        rows.push(this._renderRow.bind(this)(fileList.slice(start, end), i, start));
       }
       return (
         <div className="folder-page">
@@ -37,28 +40,34 @@ class Page extends React.Component {
     }
   }
   
+  componentWillReceiveProps(nextProps) {
+    this.setState({
+      fileList: nextProps.fileList
+    });
+  }
+  
   _renderRow(pathList, key, start) {
     return (
       <div key={key} className="row">
         {
-          pathList.map((item, index) => {
-            return (
+          pathList.map((item, index) => (
               <div key={start + index}
                    className="col s12 m2">
                 <FileItem
+                  uri={this.uri}
                   data={item}
                 />
-              </div>);
-          })
+              </div>
+          ))
         }
       </div>);
   }
 }
 
-Page.propTypes = {
-  path: React.PropTypes.string.isRequired,
+Folder.propTypes = {
+  uri: React.PropTypes.string.isRequired,
   fetchPathDetail : React.PropTypes.func,
   fileList : React.PropTypes.array
 };
 
-export default Page;
+export default Folder;

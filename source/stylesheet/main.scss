@@ -2,22 +2,55 @@
 $roboto-font-path: '~materialize-css/fonts/roboto/';
 @import '~materialize-css/sass/materialize';
 
+.horizontal-margin {
+  margin-left: 40px;
+  margin-right: 40px;
+}
+
+.horizontal-padding {
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
 nav {
   @extend .light-green, .darken-1;
+  @extend .horizontal-padding;
 }
 
 body {
   @extend .cyan, .lighten-3;
 }
 
-.nav-title {
+nav .brand-logo {
   @extend .cyan-text, .text-lighten-5;
+  font-size: x-large;
 }
 
-.folder-page {
+.breadcrumb.active {
+  color: white;
+}
+
+.loading {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.loading .preloader-wrapper {
+  display: block;
+  margin: 160px auto;
+  width: 80px;
+  height: 80px;
+}
+
+.circle-clipper .circle {
+  border-width: 6px;
+}
+
+.content-container {
   margin-top: 20px;
-  margin-left: 40px;
-  margin-right: 40px;
+  @extend .horizontal-padding;
 }
 
 .card-image {
@@ -30,11 +63,29 @@ body {
   margin: 0 auto;
 }
 
-.card .card-content {
-  padding: 0;
-}
-
 .card .card-content .file-name {
   color: darkcyan;
   text-align: center;
+  word-break: break-all;
 }
+
+
+/* For transition */
+.folder-enter {
+  opacity: 0.01;
+  transition: opacity .5s ease-in;
+}
+
+.folder-enter.folder-enter-active {
+  opacity: 1;
+}
+
+.folder-leave {
+  opacity: 1;
+  transition: opacity .5s ease-in;
+}
+
+.folder-leave.folder-leave-active {
+  opacity: 0;
+}
+/* End for transition*/

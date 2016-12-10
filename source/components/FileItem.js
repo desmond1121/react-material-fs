@@ -4,7 +4,9 @@
 'use strict';
 
 import React from 'react';
-import { FileType } from '../store/constants';
+import { Link } from 'react-router';
+import { combinePath } from 'store/utils';
+import { FileType } from 'store/constants';
 
 const getIcon = (type) => {
   switch (type) {
@@ -23,23 +25,25 @@ class FileItem extends React.Component {
     
   render() {
     return (
-      <div className="card waves-effect" onClick={this._handleClick.bind(this)}>
-        <div className="card-image file-icon">
-          <img src={getIcon(this.props.data.type)} className="file-icon"/>
+      <Link to={{
+        pathname: combinePath(this.props.uri, this.props.data.name),
+        query: { type : this.props.data.type }
+      }}>
+        <div className="card waves-effect">
+          <div className="card-image file-icon">
+            <img src={getIcon(this.props.data.type)} className="file-icon"/>
+          </div>
+          <div className="card-content">
+            <p className="file-name">{this.props.data.name}</p>
+          </div>
         </div>
-        <div className="card-content">
-          <p className="file-name">{this.props.data.name}</p>
-        </div>
-      </div>
+      </Link>
     );
-  }
-  
-  _handleClick() {
-    console.log(this.props.data.name, 'was clicked.');
   }
 }
 
 FileItem.propTypes = {
+  uri : React.PropTypes.string.isRequired,
   data : React.PropTypes.object.isRequired,
 };
 
