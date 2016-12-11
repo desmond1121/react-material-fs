@@ -16,7 +16,7 @@ class TextView extends React.Component {
     let data = this.props.data;
     let path = this.props.uri;
     let origin = this.uri;
-    if (!data || origin != path) {
+    if (!data || (origin && origin != path)) {
       this.props.fetchFileDetail(path);
       this.uri = path;
       return (
@@ -24,8 +24,8 @@ class TextView extends React.Component {
       );
     } else {
       return (
-        <div>
-          <textarea>{data}</textarea>
+        <div className="text-wrapper">
+          <p className="text-view">{data}</p>
         </div>);
     }
   }

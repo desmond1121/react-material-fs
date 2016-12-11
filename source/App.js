@@ -6,11 +6,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
-import { Router, Route, browserHistory } from 'react-router';
+import { Router, Route, Link, browserHistory } from 'react-router';
 import FolderContainer from './containers/FolderContainer';
 import TextViewContainer from './containers/TextViewContainer';
 import { Provider } from 'react-redux';
 import { FileType } from 'store/constants';
+import { combinePaths } from 'store/utils';
 import configureStore from './store/configStore.dev';
 
 require('jquery');
@@ -26,8 +27,6 @@ class App extends React.Component {
     let location = this.props.location;
     let path = location.pathname;
     let type = location.query.type ? location.query.type : FileType.DIRECTORY;
-    console.log('Location', location);
-    console.log('Type', type);
     let component = type == FileType.DIRECTORY ?
       <FolderContainer /> : <TextViewContainer />;
     console.log('Render component', type == FileType.DIRECTORY ? 'Dir' : 'File');
@@ -56,21 +55,24 @@ class App extends React.Component {
   }
   
   _renderNav(path) {
-    let content;
+    let paths = path.split('/');
+    paths.splice(1, 0, '/');
     if (path == '/') {
-      content = (
-        <a className="breadcrumb">Root</a>
-      );
-    } else {
-      let paths = path.split('/');
-      content = paths.map((item, index) => {
-        if (index < paths.length - 1) {
-          return (<a key={index} className="breadcrumb">{item}</a>);
-        } else {
-          return (<a key={index} className="breadcrumb active">{item}</a>);
-        }
-      });
+      paths.pop();
     }
+    console.log('path', path, 'split to', paths);
+    let content = paths.map((item, index) => {
+      if (index == 0) {
+        return (<a key={index} className="breadcrumb">{item}</a>);
+      } else {
+        let path = '/' + combinePaths(paths, 1, index);
+        if (index < paths.length - 1) {
+          return (<Link key={index} className="breadcrumb" to={path}>{item}</Link>);
+        } else {
+          return (<Link key={index} className="breadcrumb active" to={path}>{item}</Link>);
+        }
+      }
+    });
     return (
       <div>
         {content}

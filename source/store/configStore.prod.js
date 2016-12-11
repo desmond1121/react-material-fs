@@ -6,17 +6,7 @@
 import thunk from 'redux-thunk';
 import rootReducer from '../reducers';
 import { createStore, applyMiddleware } from 'redux';
-
-const logger = (store) => {
-  return (next) => {
-    return (action) => {
-      console.log('dispatching', action);
-      let result = next(action);
-      console.log('next state', store.getState());
-      return result;
-    };
-  };
-};
+import logger from './logger';
 
 const enhancer = applyMiddleware(thunk, logger);
 
