@@ -2,9 +2,9 @@
 
 A file server maded by react and material design.
 
-![](snapshot/1.png = 200x)
-![](snapshot/2.png = 200x)
-![](snapshot/3.png = 200x)
+![](snapshot/1.png)
+![](snapshot/2.png)
+![](snapshot/3.png)
 
 ## Usage
 
