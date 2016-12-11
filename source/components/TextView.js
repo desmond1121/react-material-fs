@@ -9,19 +9,14 @@ import BottomBar from './BottomBar';
 import { getFilePath } from 'actions/api';
 
 class TextView extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
     
   render() {
     let data = this.props.data;
     let path = this.props.uri;
-    console.log('Render text of', path);
     let origin = this.uri;
-    if (!data || (origin && origin != path)) {
-      this.props.fetchFileDetail(path);
+    if (!data || !origin || (origin && origin != path)) {
       this.uri = path;
+      this.props.fetchFileDetail(path);
       return (
         <Loading />
       );

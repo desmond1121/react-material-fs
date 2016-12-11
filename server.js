@@ -13,7 +13,7 @@ const staticPrefix = '/static';
 
 global.rootPath = root;
 const host = process.env.npm_package_config_host || 'localhost';
-const port = process.env.npm_package_config_port || '8080';
+const port = process.env.npm_package_config_port || '8333';
 
 // Create an HTTP tunneling proxy
 const server = http.createServer();

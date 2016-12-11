@@ -83,7 +83,7 @@ class App extends React.Component {
         if (index < paths.length - 1) {
           return (<Link key={index} className="breadcrumb" to={path}>{item}</Link>);
         } else {
-          return (<Link key={index} className="breadcrumb active" to={path}>{item}</Link>);
+          return (<a key={index} className="breadcrumb active">{item}</a>);
         }
       }
     });

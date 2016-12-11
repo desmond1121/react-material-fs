@@ -51,10 +51,6 @@ nav .brand-logo {
   border-width: 6px;
 }
 
-.content-container {
-  margin-top: 20px;
-}
-
 .card-image {
   padding-top: 10px;
 }
@@ -69,6 +65,11 @@ nav .brand-logo {
   color: darkcyan;
   text-align: center;
   word-break: break-all;
+}
+
+.folder-page {
+  position: relative;
+  padding: $padding;
 }
 
 .content-wrapper {
