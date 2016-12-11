@@ -2,9 +2,9 @@
 
 A file server maded by react and material design.
 
-![](snapshot/1.png)
-![](snapshot/2.png)
-![](snapshot/3.png)
+<img src="https://github.com/desmond1121/react-material-fs/raw/master/snapshot/1.png" width="200">
+<img src="https://github.com/desmond1121/react-material-fs/raw/master/snapshot/2.png" width="200">
+<img src="https://github.com/desmond1121/react-material-fs/raw/master/snapshot/3.png" width="200">
 
 ## Usage
 
