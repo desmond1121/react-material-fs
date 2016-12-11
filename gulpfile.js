@@ -10,7 +10,7 @@ gulp.task('gh:commit', ['gh:add'], function() {
 });
 
 gulp.task('gh:push', ['gh:commit'], function() {
-  git.push('origin', 'master', function (err) {
+  git.push('gh', 'master', function (err) {
     if (err) throw err;
   });
 });

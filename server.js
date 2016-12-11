@@ -8,7 +8,15 @@ const fs = require('fs');
 const path = require('path');
 const fileUtils = require('./server/fileutils');
 
-const root = '/Users/desmond/CodeFiles';
+if (process.argv.length < 3) {
+  console.log('You must specify a root directory by command line!');
+  process.exit();
+} else if (process.argv.length > 3) {
+  console.log('Too much arguments!');
+  process.exit();
+}
+
+const root = process.argv[2];
 const staticPrefix = '/static';
 
 global.rootPath = root;
@@ -66,4 +74,4 @@ server.on('request', (req, res) => {
 
 // now that proxy is running
 server.listen(port, host);
-console.log('Serve dist folder in http://' + host + ':' + port + '/, press Ctrl+C to stop.');
+console.log(`Serve dist folder(${root} in http://${host}:${port}/, press Ctrl+C to stop.`);

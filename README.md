@@ -2,7 +2,9 @@
 
 A file server maded by react and material design.
 
-
+![](snapshot/1.png = 200x)
+![](snapshot/2.png = 200x)
+![](snapshot/3.png = 200x)
 
 ## Usage
 
@@ -10,8 +12,10 @@ A file server maded by react and material design.
 git clone git@github.com:desmond1121/react-material-fs.git
 cd react-material-fs
 npm install
-npm start
+npm start ~/
 ```
+
+**You must input a parameter as root dir of file server.**
 
 ## Customize
 
