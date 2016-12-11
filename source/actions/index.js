@@ -4,13 +4,11 @@
 'use strict';
 
 import fetch from 'isomorphic-fetch';
-import { combinePath } from 'store/utils';
-
-const url = 'http://localhost:2333';
+import { getFilePath } from './api';
 
 export const thunkGetPathDetail = (path) => {
   return (dispatch) => (
-    fetch(combinePath(url, path))
+    fetch(getFilePath(path))
       .then(response => response.json())
       .then(json => dispatch(receivePathDetail(json)))
       .catch(error => console.log(error))
@@ -27,7 +25,7 @@ function receivePathDetail(detail) {
 
 export const thunkGetFileDetail = (path) => {
   return (dispatch) => (
-    fetch(combinePath(url, path))
+    fetch(getFilePath(path))
       .then(response => response.text())
       .then(data => dispatch(receiveFileDetail(data)))
       .catch(error => console.log(error))

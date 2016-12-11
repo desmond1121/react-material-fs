@@ -4,7 +4,8 @@
   "description": "A material file system powered by react.",
   "repository": "git@bitbucket.org:desmond1121/react-material-fs.git",
   "scripts": {
-    "dev": "webpack-dev-server --inline --hot"
+    "dev": "webpack-dev-server --inline --hot",
+    "start": "webpack && node server.js"
   },
   "license": "MIT",
   "dependencies": {
@@ -39,5 +40,9 @@
     "url-loader": "^0.5.7",
     "webpack": "^1.13.3",
     "webpack-dev-server": "^1.16.2"
+  },
+  "config" : {
+    "host" : "localhost",
+    "port" : "8333"
   }
 }

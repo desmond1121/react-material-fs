@@ -2,6 +2,9 @@
 $roboto-font-path: '~materialize-css/fonts/roboto/';
 @import '~materialize-css/sass/materialize';
 
+$bottom-bar-height: 56px;
+$padding: 40px;
+
 .horizontal-margin {
   margin-left: 40px;
   margin-right: 40px;
@@ -18,7 +21,7 @@ nav {
 }
 
 body {
-  @extend .cyan, .lighten-3;
+  @extend .grey, .lighten-5;
 }
 
 nav .brand-logo {
@@ -50,7 +53,6 @@ nav .brand-logo {
 
 .content-container {
   margin-top: 20px;
-  @extend .horizontal-padding;
 }
 
 .card-image {
@@ -69,15 +71,53 @@ nav .brand-logo {
   word-break: break-all;
 }
 
+.content-wrapper {
+  position: relative;
+  @extend .z-depth-2;
+  @extend .grey, .lighten-2;
+  margin: $padding $padding $bottom-bar-height + $padding $padding;
+}
+
 .text-view {
-  @extend .teal, .lighten-5;
   @extend .teal-text, .text-darken-4;
+  @extend .horizontal-padding;
+  padding: 20px;
+  letter-spacing: 2px;
   font-weight: normal;
   font-size: 16px;
-  width: 100%;
-  height: 100%;
-  padding: 20px;
   white-space: pre-wrap;
+}
+
+.image-view {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.bottom-bar {
+  @extend .light-green, .lighten-2;
+  @extend .z-depth-2;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+
+  border-radius: 0 0 2px 2px;
+  padding: 4px $padding;
+  height: $bottom-bar-height;
+  width: 100%;
+}
+
+.bottom-bar-btn {
+  @extend .grey-text, .text-lighten-5;
+  position: fixed;
+  display: inline-block;
+  margin: auto;
+}
+
+.fix-bottom {
+  border-top: 1px solid rgba(0,0,0,0.1);
+  position: fixed;
+  bottom: 0;
 }
 
 /* For transition */

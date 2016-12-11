@@ -1,5 +1,12 @@
+const webpack = require('webpack');
+
+const host = process.env.npm_package_config_host || 'localhost';
+const port = process.env.npm_package_config_port || '8080';
+
 module.exports = {
-  entry: __dirname + '/source/App.js',
+  entry: {
+    app: __dirname + '/source/App.js'
+  },
   output: {
     path: __dirname + '/build',
     publicPath: '/build/',
@@ -39,6 +46,12 @@ module.exports = {
     }
   },
   devServer: {
-    historyApiFallback: true,
-  }
+    historyApiFallback: true
+  },
+  plugins: [
+    new webpack.DefinePlugin({
+      'process.env.API_HOST': JSON.stringify(host),
+      'process.env.API_PORT': JSON.stringify(port)
+    })
+  ]
 };
