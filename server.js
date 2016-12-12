@@ -74,4 +74,4 @@ server.on('request', (req, res) => {
 
 // now that proxy is running
 server.listen(port, host);
-console.log(`Serve dist folder(${root} in http://${host}:${port}/, press Ctrl+C to stop.`);
+console.log(`Serve dist folder(${root}) in http://${host}:${port}/, press Ctrl+C to stop.`);
