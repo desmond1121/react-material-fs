@@ -17,8 +17,8 @@ class ImageView extends React.Component {
     let path = this.props.uri;
     console.log('Render image of', path);
     return (
-      <div>
-        <div className="content-wrapper">
+      <div className="content-page">
+        <div className="image-wrapper">
           <img className="image-view" src={getFilePath(path)}/>
         </div>
         <BottomBar>

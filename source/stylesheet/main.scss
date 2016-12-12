@@ -72,6 +72,10 @@ nav .brand-logo {
   padding: $padding;
 }
 
+.content-page {
+  text-align: center;
+}
+
 .content-wrapper {
   position: relative;
   @extend .z-depth-2;
@@ -79,9 +83,15 @@ nav .brand-logo {
   margin: $padding $padding $bottom-bar-height + $padding $padding;
 }
 
+.image-wrapper {
+  @extend .content-wrapper;
+  display: inline-block;
+}
+
 .text-view {
   @extend .teal-text, .text-darken-4;
   @extend .horizontal-padding;
+  text-align: start;
   padding: 20px;
   letter-spacing: 2px;
   font-weight: normal;

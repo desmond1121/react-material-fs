@@ -12,6 +12,8 @@ const getIcon = (type) => {
   switch (type) {
     case FileType.DIRECTORY:
       return require('assets/ic_folder.png');
+    case FileType.IMAGE:
+      return require('assets/ic_image.png');
     default:
       return require('assets/ic_file.png');
   }

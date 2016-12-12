@@ -22,7 +22,7 @@ class TextView extends React.Component {
       );
     } else {
       return (
-        <div>
+        <div className="content-page">
           <div className="content-wrapper">
             <p className="text-view">{data}</p>
           </div>
