@@ -7,6 +7,20 @@ import React from 'react';
 import Loading from './Loading';
 import BottomBar from './BottomBar';
 import { getFilePath } from 'actions/api';
+import { connect } from 'react-redux';
+import { thunkGetFileDetail } from '../actions';
+
+const mapStateToProps = (state) => {
+  return {
+    data : state.fileReducer.data
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    fetchFileDetail : (path) => dispatch(thunkGetFileDetail(path))
+  };
+};
 
 class TextView extends React.Component {
     
@@ -42,9 +56,9 @@ class TextView extends React.Component {
 
 TextView.propTypes = {
   uri: React.PropTypes.string.isRequired,
-  fetchFileDetail : React.PropTypes.func,
-  data : React.PropTypes.string
+  data : React.PropTypes.string,
+  fetchFileDetail : React.PropTypes.func
 };
 
 
-export default TextView;
+export default connect(mapStateToProps, mapDispatchToProps)(TextView);

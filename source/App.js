@@ -7,8 +7,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import { Router, Route, Link, browserHistory } from 'react-router';
-import FolderContainer from './containers/FolderContainer';
-import TextViewContainer from './containers/TextViewContainer';
+import Folder from './components/FolderView';
+import TextView from './components/TextView';
 import ImageView from './components/ImageView';
 import { Provider } from 'react-redux';
 import { FileType } from 'store/constants';
@@ -30,7 +30,7 @@ class App extends React.Component {
     console.log('Dir', __dirname);
     let type = location.query.type ? location.query.type : FileType.DIRECTORY;
 
-    let component = this._getCompontentFromType(parseInt(type));
+    let component = this._getComponentFromType(parseInt(type));
   
     return (
       <div>
@@ -55,17 +55,17 @@ class App extends React.Component {
     );
   }
   
-  _getCompontentFromType(type) {
+  _getComponentFromType(type) {
     switch (type) {
       case FileType.DIRECTORY:
-        return <FolderContainer />;
+        return <Folder />;
       case FileType.IMAGE:
         console.log('Render image of type', type);
         return <ImageView />;
       case FileType.TEXT:
       default:
         console.log('Render text of type', type);
-        return <TextViewContainer />;
+        return <TextView />;
     }
   }
   

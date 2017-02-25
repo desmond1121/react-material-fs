@@ -19,30 +19,23 @@ const getIcon = (type) => {
   }
 };
 
-class FileItem extends React.Component {
-  
-  constructor(props) {
-    super(props);
-  }
-    
-  render() {
-    return (
-      <Link to={{
-        pathname: combinePath(this.props.uri, this.props.data.name),
-        query: { type : this.props.data.type }
-      }}>
-        <div className="card waves-effect">
-          <div className="card-image file-icon">
-            <img src={getIcon(this.props.data.type)} className="file-icon"/>
-          </div>
-          <div className="card-content">
-            <p className="file-name">{this.props.data.name}</p>
-          </div>
+const FileItem = (props) => {
+  return (
+    <Link to={{
+      pathname: combinePath(props.uri, props.data.name),
+      query: { type : props.data.type }
+    }}>
+      <div className="card waves-effect">
+        <div className="card-image file-icon">
+          <img src={getIcon(props.data.type)} className="file-icon"/>
         </div>
-      </Link>
-    );
-  }
-}
+        <div className="card-content">
+          <p className="file-name">{props.data.name}</p>
+        </div>
+      </div>
+    </Link>
+  );
+};
 
 FileItem.propTypes = {
   uri : React.PropTypes.string.isRequired,

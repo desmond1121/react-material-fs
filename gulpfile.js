@@ -4,7 +4,7 @@ const shell = require('gulp-shell');
 
 /* for dev */
 gulp.task('dev:server', shell.task('npm run server ./'));
-gulp.task('dev:webpack', shell.task('npm run webpackDev'));
+gulp.task('dev:webpack', shell.task('npm run dev'));
 gulp.task('dev', ['dev:server', 'dev:webpack']);
 
 /* for git */

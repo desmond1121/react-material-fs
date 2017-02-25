@@ -6,9 +6,9 @@
 export default (store) => {
   return (next) => {
     return (action) => {
-      console.log('dispatching', action);
+      console.log('[REDUX] dispatching', action);
       let result = next(action);
-      console.log('next state', store.getState());
+      console.log('[REDUX] next state', store.getState());
       return result;
     };
   };

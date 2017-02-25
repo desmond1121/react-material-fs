@@ -7,12 +7,14 @@ import fetch from 'isomorphic-fetch';
 import { getFilePath } from './api';
 
 export const thunkGetPathDetail = (path) => {
-  return (dispatch) => (
-    fetch(getFilePath(path))
+  return (dispatch) => {
+    let url = getFilePath(path);
+    console.log('Get path', path, 'url:', url);
+    fetch(url)
       .then(response => response.json())
       .then(json => dispatch(receivePathDetail(json)))
       .catch(error => console.log(error))
-  );
+  };
 };
 
 export const RECEIVE_DETAILS = 'RECEIVE_DETAILS';
@@ -28,7 +30,6 @@ export const thunkGetFileDetail = (path) => {
     fetch(getFilePath(path))
       .then(response => response.text())
       .then(data => dispatch(receiveFileDetail(data)))
-      .catch(error => console.log(error))
   );
 };
 

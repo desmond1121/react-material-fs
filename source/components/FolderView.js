@@ -5,10 +5,24 @@
 import React from 'react';
 import FileItem from './FileItem';
 import Loading from './Loading';
+import { connect } from 'react-redux';
+import { thunkGetPathDetail } from '../actions';
+
+const mapStateToProps = (state) => {
+  return {
+    fileList : state.folderReducer.list
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    fetchPathDetail : (path) => dispatch(thunkGetPathDetail(path))
+  };
+};
 
 const ROW_ITEM = 6;
 
-class Folder extends React.Component {
+class FolderView extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -64,10 +78,10 @@ class Folder extends React.Component {
   }
 }
 
-Folder.propTypes = {
+FolderView.propTypes = {
   uri: React.PropTypes.string.isRequired,
   fetchPathDetail : React.PropTypes.func,
   fileList : React.PropTypes.array
 };
 
-export default Folder;
+export default connect(mapStateToProps, mapDispatchToProps)(FolderView);

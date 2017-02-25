@@ -5,7 +5,7 @@
   "repository": "git@bitbucket.org:desmond1121/react-material-fs.git",
   "scripts": {
     "server" : "node server.js",
-    "webpackDev" : "webpack-dev-server --inline --hot",
+    "dev" : "webpack-dev-server --inline --hot",
     "start": "webpack && node server.js"
   },
   "license": "MIT",
